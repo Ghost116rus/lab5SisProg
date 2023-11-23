@@ -44,6 +44,7 @@ namespace lab1SisProg
         {
             if (!Begin(1))
                 Stop();
+            Clear();
         }
 
         private void Stop()
@@ -96,7 +97,7 @@ namespace lab1SisProg
                         {
                             if (!fsp.flagEnd)
                             {
-                                writeError(firstPassErrorTextBox, "Ошибка: Не гайдена директива END");
+                                writeError(firstPassErrorTextBox, "Ошибка: Не найдена директива END");
                                 return false;
                             }
                         }
@@ -252,19 +253,19 @@ namespace lab1SisProg
                 string[] temp = str[i].Split(' ');
                 if (temp.Length >= 3)
                 {
-                    if (temp[2].IndexOf('"') == 1 && temp[temp.Length - 1].LastIndexOf('"') == temp[temp.Length - 1].Length - 1)
-                    {
-                        for (int j = 3; j < temp.Length; j++)
-                        {
-                            temp[2] += " " + temp[j];
-                            temp[j] = "";
-                        }
-                    }
-                    else if (temp[1].IndexOf('"') == 1 && temp[temp.Length - 1].LastIndexOf('"') == temp[temp.Length - 1].Length - 1)
+                    if (temp[1].IndexOf('"') == 1 && temp[temp.Length - 1].LastIndexOf('"') == temp[temp.Length - 1].Length - 1)
                     {
                         for (int j = 2; j < temp.Length; j++)
                         {
                             temp[1] += " " + temp[j];
+                            temp[j] = "";
+                        }
+                    }
+                    else if (temp[2].IndexOf('"') == 1 && temp[temp.Length - 1].LastIndexOf('"') == temp[temp.Length - 1].Length - 1)
+                    {
+                        for (int j = 3; j < temp.Length; j++)
+                        {
+                            temp[2] += " " + temp[j];
                             temp[j] = "";
                         }
                     }
