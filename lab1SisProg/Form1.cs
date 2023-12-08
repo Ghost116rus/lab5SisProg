@@ -273,11 +273,11 @@ namespace lab1SisProg
                 temp = temp.Where(x => !string.IsNullOrEmpty(x)).ToArray();
                 temp[temp.Length - 1] = temp[temp.Length - 1].Replace("\r", "");
 
-                if (temp[0] == "END" && i + 1 != str.Length)
-                {
-                    MessageBox.Show($"Замечены строки после END.", "Внимание!");
-                    return false;
-                }
+                //if (temp[0] == "END" && i + 1 != str.Length)
+                //{
+                //    MessageBox.Show($"Замечены строки после END.", "Внимание!");
+                //    return false;
+                //}
 
                 if (temp.Length <= 4)
                 {
